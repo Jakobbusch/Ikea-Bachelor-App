@@ -4,14 +4,17 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.Locale;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.internal.EverythingIsNonNull;
 
 
 public class Repository {
     private static Repository instance;
-
 
 
 
@@ -26,19 +29,28 @@ public class Repository {
 
     public void getTest(){
         API api = ServiceGenerator.getApi();
-        Call<Response> call = api.getTest();
-        call.enqueue(new Callback<Response>() {
+        Call<String> call = api.getTest();
+        call.enqueue(new Callback<String>() {
+            @EverythingIsNonNull
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(Call<String> call, Response<String> response) {
 
                 if (response.isSuccessful()){
-                    System.out.println(response.toString());
+                    if (response.body() != null){
+                        Log.i("onSuccess", response.body().toString());
+                        System.out.println(response.body().toString());
+                    }else{
+                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+
                 }
             }
-
+            @EverythingIsNonNull
             @Override
-            public void onFailure(Call<Response> call, Throwable t) {
+            public void onFailure(Call<String> call, Throwable t) {
                 Log.i("Retrofit", "Something went wrong :(");
+                Log.i("Error",t.getMessage());
+                Log.d("responseMsg",t.toString());
             }
         });
     }

@@ -1,7 +1,10 @@
 package com.example.ikeabachelorapp;
 
-public class Test {
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
+class Test {
+    @SerializedName("test")
     private final String test;
 
     public Test(String test){
@@ -9,7 +12,7 @@ public class Test {
         this.test = test;
     }
 
-    public String getTest(){
+        public String getTest(){
         return test;
     }
 }

@@ -1,8 +1,14 @@
 package com.example.ikeabachelorapp;
 
-public class Response {
 
+import com.google.gson.annotations.SerializedName;
+
+public class ResponseTest {
+
+
+    @SerializedName("test")
     private String test;
+
     public Test getTest() {
         return new Test(test);
     }

@@ -1,13 +1,8 @@
 package com.example.ikeabachelorapp;
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-
 import java.util.List;
-import java.util.Locale;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -28,29 +23,29 @@ public class Repository {
     }
 
 
-    public void getTest(){
+    public void getProductList(){
         API api = ServiceGenerator.getApi();
-        Call<List<ResponseTesttable>> call = api.getTest();
-        call.enqueue(new Callback<List<ResponseTesttable>>() {
+        Call<List<ResponseProduct>> call = api.productList();
+        call.enqueue(new Callback<List<ResponseProduct>>() {
             @EverythingIsNonNull
             @Override
-            public void onResponse(Call<List<ResponseTesttable>> call, Response<List<ResponseTesttable>> response) {
+            public void onResponse(Call<List<ResponseProduct>> call, Response<List<ResponseProduct>> response) {
 
                 if (response.isSuccessful()){
                     if (response.body() != null){
 
                         for (int i = 0; i < response.body().size(); i++) {
-                            System.out.println(response.body().get(i).varTest);
+                            System.out.println(response.body().get(i).productID + " " + response.body().get(i).productName + " " + response.body().get(i).productType + " " + response.body().get(i).productPrice);
                         }
                     }else{
-                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                        Log.i("onEmptyResponse", "Returned empty response");
                     }
 
                 }
             }
             @EverythingIsNonNull
             @Override
-            public void onFailure(Call<List<ResponseTesttable>> call, Throwable t) {
+            public void onFailure(Call<List<ResponseProduct>> call, Throwable t) {
                 Log.i("Retrofit", "Something went wrong :(");
                 Log.i("Error",t.getMessage());
                 Log.d("responseMsg",t.toString());

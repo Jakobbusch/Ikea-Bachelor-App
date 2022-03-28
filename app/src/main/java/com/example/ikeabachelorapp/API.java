@@ -7,6 +7,6 @@ import retrofit2.http.Headers;
 
 public interface API {
     @Headers({"Accept: application/json"})
-    @GET("/db")
-    Call <List<ResponseTesttable>> getTest();
+    @GET("/products")
+    Call <List<ResponseProduct>> productList();
 }

@@ -4,6 +4,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import java.util.List;
 import java.util.Locale;
 
 import okhttp3.ResponseBody;
@@ -29,16 +30,18 @@ public class Repository {
 
     public void getTest(){
         API api = ServiceGenerator.getApi();
-        Call<String> call = api.getTest();
-        call.enqueue(new Callback<String>() {
+        Call<List<ResponseTesttable>> call = api.getTest();
+        call.enqueue(new Callback<List<ResponseTesttable>>() {
             @EverythingIsNonNull
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
+            public void onResponse(Call<List<ResponseTesttable>> call, Response<List<ResponseTesttable>> response) {
 
                 if (response.isSuccessful()){
                     if (response.body() != null){
-                        Log.i("onSuccess", response.body().toString());
-                        System.out.println(response.body().toString());
+
+                        for (int i = 0; i < response.body().size(); i++) {
+                            System.out.println(response.body().get(i).varTest);
+                        }
                     }else{
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
                     }
@@ -47,7 +50,7 @@ public class Repository {
             }
             @EverythingIsNonNull
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<List<ResponseTesttable>> call, Throwable t) {
                 Log.i("Retrofit", "Something went wrong :(");
                 Log.i("Error",t.getMessage());
                 Log.d("responseMsg",t.toString());

@@ -1,6 +1,7 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
 
+import com.example.ikeabachelorapp.API;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

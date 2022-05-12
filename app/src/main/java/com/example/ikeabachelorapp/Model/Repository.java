@@ -1,5 +1,7 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 import android.util.Log;
+
+import com.example.ikeabachelorapp.API;
 
 import java.util.List;
 

@@ -1,4 +1,6 @@
 package com.example.ikeabachelorapp;
+import com.example.ikeabachelorapp.Model.ResponseProduct;
+
 import java.util.List;
 
 import retrofit2.Call;

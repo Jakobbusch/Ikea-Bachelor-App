@@ -1,9 +1,11 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
-import com.google.gson.annotations.Expose;
+
+import com.example.ikeabachelorapp.Model.Product;
 import com.google.gson.annotations.SerializedName;
 
-class Product {
+public class ResponseProduct {
+
 
     @SerializedName("productID")
     public int productID;
@@ -26,18 +28,11 @@ class Product {
     @SerializedName("productWeight")
     public double productWeight;
 
-    public Product() {
+    public Product getProduct() {
+        return new Product(productID,productName,productType,productPrice,productWidth,productHeight,productWeight);
     }
 
-    public Product(int productID, String productName, String productType, double productPrice, double productWidth, double productHeight, double productWeight) {
-        this.productID = productID;
-        this.productName = productName;
-        this.productType = productType;
-        this.productPrice = productPrice;
-        this.productWidth = productWidth;
-        this.productHeight = productHeight;
-        this.productWeight = productWeight;
-    }
+
 
     public int getProductID() {
         return productID;

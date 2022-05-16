@@ -3,7 +3,7 @@ package com.example.ikeabachelorapp;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-class Product {
+public class Product {
 
     @SerializedName("productID")
     public int productID;
@@ -94,4 +94,9 @@ class Product {
     public void setProductWeight(double productWeight) {
         this.productWeight = productWeight;
     }
+
+    public String toString(){
+        return "ID: "+ productID+ " ProductName: "+productName + " Product Price: "+ productPrice + " ProductWidth "+ productWidth + " ProductHeight: "+ productHeight + " ProductWeight "+productWeight;
+    }
+
 }

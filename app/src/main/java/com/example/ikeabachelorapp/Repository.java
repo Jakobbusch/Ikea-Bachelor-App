@@ -58,8 +58,6 @@ public class Repository {
                         for (int i = 0; i < response.body().size(); i++) {
                             tables.add(response.body().get(i).productName);
                             list.add(response.body().get(i).getProduct());
-
-                            System.out.println(response.body().get(i).productID + " " + response.body().get(i).productName + " " + response.body().get(i).productType + " " + response.body().get(i).productPrice);
                         }
                         productList.setValue(list);
                     }else{

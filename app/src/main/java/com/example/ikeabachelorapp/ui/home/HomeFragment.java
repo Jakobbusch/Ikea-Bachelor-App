@@ -33,7 +33,6 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home,container,false);
         tv = view.findViewById(R.id.text_home);
-        System.out.println("From home: "+activity.getdata());
 
         tv.setText(activity.getdata());
 

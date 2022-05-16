@@ -13,5 +13,6 @@
     <string name="info_color">Color: </string>
     <string name="info_scale">Scale: </string>
     <string name="info_weight">Weight: </string>
-
+    <string name="info_buildTime">Build Time: </string>
+    <string name="info_builDifficulty">Build Difficulty: </string>
 </resources>

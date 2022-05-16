@@ -3,11 +3,14 @@ package com.example.ikeabachelorapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -49,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getProducts().observe(this,product -> {
             List<String> temp = new ArrayList<>();
             for (int i = 0; i < product.size(); i++) {
-                System.out.println(product.get(i).productName);
                 temp.add(product.get(i).productName);
             }
             expandableDetailList.put("Tables",temp);
@@ -60,18 +62,10 @@ public class MainActivity extends AppCompatActivity {
         qrButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String val = "Table";
-                Intent i = new Intent(MainActivity.this, productpage.class);
-                i.putExtra("val",val);
-                startActivity(i);
+            navigateToCamera("Hello");
             }
         });
-        // drawer layout instance to toggle the menu icon to open
-        // drawer and back button to close drawer
-        //drawerLayout = findViewById(R.id.drawerLayout);
         drawerList = (ExpandableListView) findViewById(R.id.drawerl);
-        //actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,R.string.nav_open,R.string.nav_close);
-
         titleList = new ArrayList<String>(expandableDetailList.keySet());
         expandableListAdapter = new CustomizedExpandableListAdapter(this,titleList,expandableDetailList);
         drawerList.setAdapter(expandableListAdapter);
@@ -81,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
         drawerList.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
-                System.out.println("Expand: "+groupPosition);
                 Toast.makeText(getApplicationContext(), titleList.get(groupPosition) + " List Expanded.", Toast.LENGTH_SHORT).show();
             }
         });
@@ -111,24 +104,6 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
-        // pass the Open and Close toggle for the drawer layout listener
-        // to toggle the button
-        //drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        //actionBarDrawerToggle.syncState();
-
-        // to make the Navigation drawer icon always appear on the action bar
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
-
-
-
-        //WebView webView = findViewById(R.id.modelWebView);
-        //webView.loadUrl("https://irongarden.github.io/ZoomRotate/");
-        //WebSettings webSettings=webView.getSettings();
-        //webSettings.setJavaScriptEnabled(true);
-
 
     }
 
@@ -139,6 +114,15 @@ public class MainActivity extends AppCompatActivity {
         i.putExtra("click",name);
         startActivity(i);
     }
+
+    private void navigateToCamera(String name){
+        viewModel.setSelected(name);
+        Intent i = new Intent(MainActivity.this, CameraActivity.class);
+        i.putExtra("click",name);
+        startActivity(i);
+    }
+
+
 }
 
 

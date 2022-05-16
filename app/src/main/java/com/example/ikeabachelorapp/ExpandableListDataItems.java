@@ -12,7 +12,7 @@ public class ExpandableListDataItems {
         // We can modify them as per our choice.
         // And also choice of fruits/vegetables/nuts can be changed
         List<String> Tables = new ArrayList<String>();
-        Tables.add("nul");
+        Tables.add("null");
 
 
         List<String> Cabinets = new ArrayList<String>();

@@ -102,6 +102,11 @@ public class CameraActivity extends AppCompatActivity {
             public void onQRCodeFound(String qrCode_) {
                 qrCode = qrCode_;
                 qrFoundButton.setVisibility(View.VISIBLE);
+                try {
+                    wait(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override

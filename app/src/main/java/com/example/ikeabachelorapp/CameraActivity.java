@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
+import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
@@ -14,6 +15,10 @@ import androidx.lifecycle.LifecycleOwner;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.Size;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.common.util.concurrent.ListenableFuture;
@@ -24,14 +29,27 @@ public class CameraActivity extends AppCompatActivity {
     private PreviewView pv;
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
     private static final int PERMISSION_REQUEST_CAMERA = 0;
+    private Button qrFoundButton;
+    private String qrCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+        qrFoundButton = findViewById(R.id.qrFoundButton);
+        qrFoundButton.setVisibility(View.INVISIBLE);
         pv = findViewById(R.id.camPreview);
+
+        qrFoundButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(),qrCode,Toast.LENGTH_SHORT).show();
+                Log.i(CameraActivity.class.getSimpleName(),"QR Code Found: " + qrCode);
+            }
+        });
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
         requestCam();
+
 
     }
     private void requestCam(){
@@ -66,6 +84,26 @@ public class CameraActivity extends AppCompatActivity {
 
         p.setSurfaceProvider(pv.createSurfaceProvider());
 
-        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this,cameraSelector,p);
+        ImageAnalysis imageAnalysis = new ImageAnalysis.Builder().setTargetResolution(new Size(1280,720))
+                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                .build();
+
+        imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(this),new QRCodeImageAnalyser(new QRCodeFoundListener() {
+            @Override
+            public void onQRCodeFound(String qrCode_) {
+                qrCode = qrCode_;
+                qrFoundButton.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void qrCodeNotFound() {
+            qrFoundButton.setVisibility(View.INVISIBLE);
+            }
+        }));
+
+        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this,cameraSelector,imageAnalysis,p);
     }
+
+
+
 }

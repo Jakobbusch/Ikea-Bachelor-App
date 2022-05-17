@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
             productList = product;
 
         } );
+        
+
 
         qrButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -19,8 +19,17 @@ public class ExpandableListDataItems {
         Cabinets.add("null");
 
 
+        List<String> Chairs = new ArrayList<String>();
+        Chairs.add("null");
+
+        List<String> Sofas = new ArrayList<String>();
+        Sofas.add("null");
+
         List<String> Beds = new ArrayList<String>();
         Beds.add("null");
+
+        List<String> Lighting = new ArrayList<String>();
+        Lighting.add("null");
 
 
         // Fruits are grouped under Fruits Items. Similarly the rest two are under
@@ -29,7 +38,10 @@ public class ExpandableListDataItems {
         // their respective children using an ArrayList of Strings.
         expandableDetailList.put("Tables", Tables);
         expandableDetailList.put("Cabinets", Cabinets);
+        expandableDetailList.put("Chairs", Chairs);
+        expandableDetailList.put("Sofas", Sofas);
         expandableDetailList.put("Beds", Beds);
+        expandableDetailList.put("Lighting", Lighting);
         return expandableDetailList;
     }
 }

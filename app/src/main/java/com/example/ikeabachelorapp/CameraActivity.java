@@ -33,6 +33,7 @@ public class CameraActivity extends AppCompatActivity {
     private Button qrFoundButton;
     private String qrCode;
     Repository rep;
+    private boolean qrfound = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,18 +101,18 @@ public class CameraActivity extends AppCompatActivity {
         imageAnalysis.setAnalyzer(ContextCompat.getMainExecutor(this),new QRCodeImageAnalyser(new QRCodeFoundListener() {
             @Override
             public void onQRCodeFound(String qrCode_) {
+                qrfound = true;
                 qrCode = qrCode_;
                 qrFoundButton.setVisibility(View.VISIBLE);
-                try {
-                    wait(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
 
             @Override
             public void qrCodeNotFound() {
-            qrFoundButton.setVisibility(View.INVISIBLE);
+                if(!qrfound){
+                    qrFoundButton.setVisibility(View.INVISIBLE);
+                }
+
             }
         }));
 

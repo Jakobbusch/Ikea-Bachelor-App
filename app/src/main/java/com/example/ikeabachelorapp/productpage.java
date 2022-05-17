@@ -1,6 +1,7 @@
 package com.example.ikeabachelorapp;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.ikeabachelorapp.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,6 +18,7 @@ public class productpage extends AppCompatActivity {
 
     private ActivityProductpageBinding binding;
     String val;
+    String val1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class productpage extends AppCompatActivity {
     if(extras!=null){
          val = extras.getString("click");
         System.out.println("From product: "+val);
+
+        val1 = extras.getString("qr");
+        Toast.makeText(this,val1,Toast.LENGTH_SHORT);
 
     }
         binding = ActivityProductpageBinding.inflate(getLayoutInflater());

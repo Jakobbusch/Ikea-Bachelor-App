@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,7 @@ public class CameraActivity extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_CAMERA = 0;
     private Button qrFoundButton;
     private String qrCode;
+    Repository rep;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +41,19 @@ public class CameraActivity extends AppCompatActivity {
         qrFoundButton = findViewById(R.id.qrFoundButton);
         qrFoundButton.setVisibility(View.INVISIBLE);
         pv = findViewById(R.id.camPreview);
+        rep = Repository.getInstance();
 
         qrFoundButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),qrCode,Toast.LENGTH_SHORT).show();
                 Log.i(CameraActivity.class.getSimpleName(),"QR Code Found: " + qrCode);
+
+                    Intent i = new Intent(CameraActivity.this, productpage.class);
+                    i.putExtra("qr",qrCode);
+                    rep.setSelected("LACK");
+                    startActivity(i);
+
             }
         });
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);

@@ -11,9 +11,6 @@
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,20 +20,19 @@
 
     <ImageView
         android:id="@+id/imageViewFront"
-        android:layout_width="300dp"
-        android:layout_height="178dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="373dp"
+        android:layout_height="243dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <ImageView
         android:id="@+id/imageViewDraw"
-        android:layout_width="364dp"
-        android:layout_height="262dp"
-        android:layout_marginBottom="104dp"
+        android:layout_width="384dp"
+        android:layout_height="259dp"
+        android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"

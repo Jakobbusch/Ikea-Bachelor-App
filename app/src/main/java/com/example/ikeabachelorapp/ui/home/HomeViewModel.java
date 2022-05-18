@@ -28,14 +28,16 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         urls= new HashMap<>();
-        urls.put("drawing","https://www.ikea.com/dk/da/images/products/friheten-hjornesovesofa-med-opbevaring-skiftebo-morkegra__0733170_pe738880_s5.jpg?f=xl");
-        urls.put("front","https://www.ikea.com/dk/da/images/products/friheten-hjornesovesofa-med-opbevaring-skiftebo-morkegra__0175610_pe328883_s5.jpg?f=xl");
 
         rep = Repository.getInstance();
         product = rep.getSelected();
+
+        System.out.println("&Home: " +product.getProductPlanImage());
+        urls.put("drawing",product.getProductPlanImage());
+        urls.put("front",product.getProductImage());
         mText = new MutableLiveData<>();
         if(product!= null){
-            mText.setValue(product.productName +" " + product.getProductType());
+            mText.setValue(product.productName);
         }
 
         hText = new MutableLiveData<>();

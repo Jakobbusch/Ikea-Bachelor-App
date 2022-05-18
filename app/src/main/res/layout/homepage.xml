@@ -8,12 +8,6 @@
     android:background="@drawable/ikeawallpaper">
 
 
-
-
-
-
-
-
     <!--this the navigation view which draws
         and shows the navigation drawer-->
     <!--include the menu created in the menu folder-->

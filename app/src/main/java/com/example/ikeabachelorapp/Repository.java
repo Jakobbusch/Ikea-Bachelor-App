@@ -63,9 +63,7 @@ public class Repository {
                     }else{
                         Log.i("onEmptyResponse", "Returned empty response");
                     }
-
                 }
-
             }
             @EverythingIsNonNull
             @Override

@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.getProducts().observe(this,product -> {
 
+            System.out.println(product.get(0).productName + ":& URL: "+product.get(0).getProductImage());
             ArrayList<String> tempTypes = new ArrayList<>();
             for (int i = 0; i < product.size(); i++) {
                 if(!tempTypes.contains(product.get(i).productType)){

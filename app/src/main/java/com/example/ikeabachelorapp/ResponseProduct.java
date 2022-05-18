@@ -27,8 +27,23 @@ public class ResponseProduct {
     @SerializedName("productWeight")
     public double productWeight;
 
+    @SerializedName("productImage")
+    private String productImage;
+
+    @SerializedName("productPartAmount")
+    private int productPartAmount;
+
+    @SerializedName("productColor")
+    private String productColor;
+
+    @SerializedName("productPlanImage")
+    private String productPlanImage;
+
+    @SerializedName("productQRCode")
+    private int productQRCode;
+
     public Product getProduct() {
-        return new Product(productID,productName,productType,productPrice,productWidth,productHeight,productWeight);
+        return new Product(productID,productName,productType,productPrice,productWidth,productHeight,productWeight,productImage,productPartAmount,productColor,productPlanImage,productQRCode);
     }
 
 
@@ -87,5 +102,45 @@ public class ResponseProduct {
 
     public void setProductWeight(double productWeight) {
         this.productWeight = productWeight;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public int getProductPartAmount() {
+        return productPartAmount;
+    }
+
+    public void setProductPartAmount(int productPartAmount) {
+        this.productPartAmount = productPartAmount;
+    }
+
+    public String getProductColor() {
+        return productColor;
+    }
+
+    public void setProductColor(String productColor) {
+        this.productColor = productColor;
+    }
+
+    public String getProductPlanImage() {
+        return productPlanImage;
+    }
+
+    public void setProductPlanImage(String productPlanImage) {
+        this.productPlanImage = productPlanImage;
+    }
+
+    public int getProductQRCode() {
+        return productQRCode;
+    }
+
+    public void setProductQRCode(int productQRCode) {
+        this.productQRCode = productQRCode;
     }
 }

@@ -26,10 +26,26 @@ public class Product {
     @SerializedName("productWeight")
     public double productWeight;
 
+    @SerializedName("productImage")
+    private String productImage;
+
+    @SerializedName("productPartAmount")
+    private int productPartAmount;
+
+    @SerializedName("productColor")
+    private String productColor;
+
+    @SerializedName("productPlanImage")
+    private String productPlanImage;
+
+    @SerializedName("productQRCode")
+    private int productQRCode;
+
     public Product() {
     }
 
-    public Product(int productID, String productName, String productType, double productPrice, double productWidth, double productHeight, double productWeight) {
+    public Product(int productID, String productName, String productType, double productPrice, double productWidth, double productHeight, double productWeight,
+                   String productImage, int productPartAmount,String productColor,String productPlanImage, int productQRCode) {
         this.productID = productID;
         this.productName = productName;
         this.productType = productType;
@@ -37,6 +53,11 @@ public class Product {
         this.productWidth = productWidth;
         this.productHeight = productHeight;
         this.productWeight = productWeight;
+        this.productImage = productImage;
+        this.productPartAmount = productPartAmount;
+        this.productColor = productColor;
+        this.productPlanImage = productPlanImage;
+        this.productQRCode = productQRCode;
     }
 
     public int getProductID() {
@@ -93,6 +114,46 @@ public class Product {
 
     public void setProductWeight(double productWeight) {
         this.productWeight = productWeight;
+    }
+
+    public String getProductImage() {
+        return productImage;
+    }
+
+    public void setProductImage(String productImage) {
+        this.productImage = productImage;
+    }
+
+    public int getProductPartAmount() {
+        return productPartAmount;
+    }
+
+    public void setProductPartAmount(int productPartAmount) {
+        this.productPartAmount = productPartAmount;
+    }
+
+    public String getProductColor() {
+        return productColor;
+    }
+
+    public void setProductColor(String productColor) {
+        this.productColor = productColor;
+    }
+
+    public String getProductPlanImage() {
+        return productPlanImage;
+    }
+
+    public void setProductPlanImage(String productPlanImage) {
+        this.productPlanImage = productPlanImage;
+    }
+
+    public int getProductQRCode() {
+        return productQRCode;
+    }
+
+    public void setProductQRCode(int productQRCode) {
+        this.productQRCode = productQRCode;
     }
 
     public String toString(){

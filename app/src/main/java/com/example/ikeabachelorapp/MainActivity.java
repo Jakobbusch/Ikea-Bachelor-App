@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     List<String> titleList;
     HashMap<String,List<String>> expandableDetailList;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,16 +48,33 @@ public class MainActivity extends AppCompatActivity {
         expandableDetailList = ExpandableListDataItems.getData();
 
         viewModel.getProducts().observe(this,product -> {
-            List<String> temp = new ArrayList<>();
+
+            ArrayList<String> tempTypes = new ArrayList<>();
             for (int i = 0; i < product.size(); i++) {
-                temp.add(product.get(i).productName);
+                if(!tempTypes.contains(product.get(i).productType)){
+                    tempTypes.add(product.get(i).productType);
+                }
             }
-            expandableDetailList.put("Tables",temp);
+            System.out.println("& Temptypes: "+tempTypes);
+
+            List<String> temp;
+            for (int i = 0; i < tempTypes.size(); i++) {
+                temp = new ArrayList<>();
+                System.out.println("& Type: "+tempTypes.get(i));
+                for (int j = 0; j < product.size(); j++) {
+                    if(product.get(j).productType==tempTypes.get(i)){
+                        temp.add(product.get(j).productName);
+                        System.out.println(product.get(j).productName + " & Added to type: "+tempTypes.get(i));
+                    }
+                }
+                expandableDetailList.put(tempTypes.get(i),temp);
+
+                System.out.println("& Array: " + temp);
+                System.out.println("& ExpandList: "+expandableDetailList);
+
+            }
             productList = product;
-
         } );
-        
-
 
         qrButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         titleList = new ArrayList<String>(expandableDetailList.keySet());
         expandableListAdapter = new CustomizedExpandableListAdapter(this,titleList,expandableDetailList);
         drawerList.setAdapter(expandableListAdapter);
-
 
         // This method is called when the group is expanded
         drawerList.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -108,23 +122,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-
     private void navigateToProductView(String name){
         viewModel.setSelected(name);
         Intent i = new Intent(MainActivity.this, productpage.class);
         i.putExtra("click",name);
         startActivity(i);
     }
-
     private void navigateToCamera(String name){
         viewModel.setSelected(name);
         Intent i = new Intent(MainActivity.this, CameraActivity.class);
         i.putExtra("click",name);
         startActivity(i);
     }
-
-
 }
 
 

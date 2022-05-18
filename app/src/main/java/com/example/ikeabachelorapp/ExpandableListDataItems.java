@@ -8,16 +8,11 @@ public class ExpandableListDataItems {
     public static HashMap<String, List<String>> getData() {
         HashMap<String, List<String>> expandableDetailList = new HashMap<String, List<String>>();
 
-        // As we are populating List of fruits, vegetables and nuts, using them here
-        // We can modify them as per our choice.
-        // And also choice of fruits/vegetables/nuts can be changed
         List<String> Tables = new ArrayList<String>();
         Tables.add("null");
 
-
         List<String> Cabinets = new ArrayList<String>();
         Cabinets.add("null");
-
 
         List<String> Chairs = new ArrayList<String>();
         Chairs.add("null");

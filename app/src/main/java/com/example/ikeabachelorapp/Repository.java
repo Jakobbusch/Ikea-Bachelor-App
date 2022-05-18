@@ -74,11 +74,24 @@ public class Repository {
             }
         });
     }
-    public void setSelected(String selected){
+    public void setSelectedByName(String selected){
         for (int i = 0; i < productList.getValue().size(); i++) {
             System.out.println("Rep Chosen product: "+selected);
             System.out.println("Rep loop product: "+productList.getValue().get(i).productName);
             if(productList.getValue().get(i).productName.equalsIgnoreCase(selected)){
+                selectedProduct = productList.getValue().get(i);
+                System.out.println("Repository: products matched" + productList.getValue().get(i).getProductType());
+            }
+            System.out.println("Repository: No products matched");
+        }
+        this.selected = selected;
+    }
+
+    public void setSelectedByQr(int qr){
+        for (int i = 0; i < productList.getValue().size(); i++) {
+            System.out.println("Rep Chosen product: "+selected);
+            System.out.println("Rep loop product: "+productList.getValue().get(i).productName);
+            if(productList.getValue().get(i).getProductQRCode() == qr){
                 selectedProduct = productList.getValue().get(i);
                 System.out.println("Repository: products matched" + productList.getValue().get(i).getProductType());
             }

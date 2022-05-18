@@ -52,7 +52,7 @@ public class CameraActivity extends AppCompatActivity {
 
                     Intent i = new Intent(CameraActivity.this, productpage.class);
                     i.putExtra("qr",qrCode);
-                    rep.setSelected(qrCode);
+                    rep.setSelectedByQr(Integer.parseInt(qrCode));
                     startActivity(i);
 
             }

@@ -44,22 +44,17 @@ public class CameraActivity extends AppCompatActivity {
         pv = findViewById(R.id.camPreview);
         rep = Repository.getInstance();
 
-        qrFoundButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),qrCode,Toast.LENGTH_SHORT).show();
-                Log.i(CameraActivity.class.getSimpleName(),"QR Code Found: " + qrCode);
+        qrFoundButton.setOnClickListener(view -> {
+            Toast.makeText(getApplicationContext(),qrCode,Toast.LENGTH_SHORT).show();
+            Log.i(CameraActivity.class.getSimpleName(),"QR Code Found: " + qrCode);
 
-                    Intent i = new Intent(CameraActivity.this, productpage.class);
-                    i.putExtra("qr",qrCode);
-                    rep.setSelectedByQr(Integer.parseInt(qrCode));
-                    startActivity(i);
-
-            }
+                Intent i = new Intent(CameraActivity.this, productpage.class);
+                i.putExtra("qr",qrCode);
+                rep.setSelectedByQr(Integer.parseInt(qrCode));
+                startActivity(i);
         });
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
         requestCam();
-
 
     }
     private void requestCam(){
@@ -116,7 +111,7 @@ public class CameraActivity extends AppCompatActivity {
             }
         }));
 
-        Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this,cameraSelector,imageAnalysis,p);
+        Camera camera = cameraProvider.bindToLifecycle(this,cameraSelector,imageAnalysis,p);
     }
 
 

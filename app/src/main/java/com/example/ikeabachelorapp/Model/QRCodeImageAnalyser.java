@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;

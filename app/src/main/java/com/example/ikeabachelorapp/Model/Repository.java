@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -17,13 +17,10 @@ import retrofit2.internal.EverythingIsNonNull;
 public class Repository {
     private static Repository instance;
     private MutableLiveData<List<Product>> productList;
-    HashMap<String, List<String>> expandList;
-    private String selected;
     private Product selectedProduct;
 
     private Repository(){
         productList = new MutableLiveData<>();
-        expandList = new HashMap<>();
     }
 
     public static synchronized Repository getInstance() {
@@ -37,11 +34,6 @@ public class Repository {
         return productList;
     }
 
-    public HashMap<String, List<String>> getExpandList(){
-        return expandList;
-    }
-
-
     public void getProductList(){
         API api = ServiceGenerator.getApi();
         Call<List<ResponseProduct>> call = api.productList();
@@ -50,6 +42,7 @@ public class Repository {
             @Override
             public void onResponse(Call<List<ResponseProduct>> call, Response<List<ResponseProduct>> response) {
 
+                System.out.println(response.body().get(0).getName());
                 if (response.isSuccessful()){
                     if (response.body() != null){
                         List<String> tables = new ArrayList<>();
@@ -84,12 +77,11 @@ public class Repository {
             }
             System.out.println("Repository: No products matched");
         }
-        this.selected = select;
     }
 
     public void setSelectedByQr(int qr){
         for (int i = 0; i < productList.getValue().size(); i++) {
-            System.out.println("Rep Chosen product: "+selected);
+            //System.out.println("Rep Chosen product: "+selected);
             System.out.println("Rep loop product: "+productList.getValue().get(i).getName());
             if(productList.getValue().get(i).getqRCode() == qr){
                 selectedProduct = productList.getValue().get(i);
@@ -97,7 +89,6 @@ public class Repository {
             }
             System.out.println("Repository: No products matched");
         }
-        this.selected = selected;
     }
 
     public Product getSelected(){

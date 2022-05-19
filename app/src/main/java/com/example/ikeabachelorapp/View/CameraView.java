@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +10,6 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleOwner;
 
 import android.Manifest;
 import android.content.Intent;
@@ -22,13 +21,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ikeabachelorapp.Model.QRCodeFoundListener;
+import com.example.ikeabachelorapp.Model.QRCodeImageAnalyser;
+import com.example.ikeabachelorapp.Model.Repository;
+import com.example.ikeabachelorapp.R;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
-public class CameraActivity extends AppCompatActivity {
+public class CameraView extends AppCompatActivity {
     private PreviewView pv;
-    private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
+    private ListenableFuture<ProcessCameraProvider> cameraLProvider;
     private static final int PERMISSION_REQUEST_CAMERA = 0;
     private Button qrFoundButton;
     private String qrCode;
@@ -46,14 +49,14 @@ public class CameraActivity extends AppCompatActivity {
 
         qrFoundButton.setOnClickListener(view -> {
             Toast.makeText(getApplicationContext(),qrCode,Toast.LENGTH_SHORT).show();
-            Log.i(CameraActivity.class.getSimpleName(),"QR Code Found: " + qrCode);
+            Log.i(CameraView.class.getSimpleName(),"QR Code Found: " + qrCode);
 
-                Intent i = new Intent(CameraActivity.this, productpage.class);
+                Intent i = new Intent(CameraView.this, productPageView.class);
                 i.putExtra("qr",qrCode);
                 rep.setSelectedByQr(Integer.parseInt(qrCode));
                 startActivity(i);
         });
-        cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
+        cameraLProvider = ProcessCameraProvider.getInstance(this);
         requestCam();
 
     }
@@ -63,7 +66,7 @@ public class CameraActivity extends AppCompatActivity {
             openCam();
         } else {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
-                ActivityCompat.requestPermissions(CameraActivity.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
+                ActivityCompat.requestPermissions(CameraView.this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
             } else {
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, PERMISSION_REQUEST_CAMERA);
             }
@@ -71,9 +74,9 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void openCam(){
-        cameraProviderListenableFuture.addListener(() -> {
+        cameraLProvider.addListener(() -> {
             try{
-                ProcessCameraProvider cameraProvider = cameraProviderListenableFuture.get();
+                ProcessCameraProvider cameraProvider = cameraLProvider.get();
                bindCamPrev(cameraProvider);
             }catch (ExecutionException | InterruptedException e){
                 Toast.makeText(this,"Cam Error " + e.getMessage(),Toast.LENGTH_SHORT).show();

@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
 public interface QRCodeFoundListener {
     void onQRCodeFound(String qrCode);

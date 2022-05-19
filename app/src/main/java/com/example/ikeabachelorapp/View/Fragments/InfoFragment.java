@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp.ui.info;
+package com.example.ikeabachelorapp.View.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,15 +11,16 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ikeabachelorapp.databinding.FragmentInfoBinding;
+import com.example.ikeabachelorapp.ViewModel.InfoViewModel;
 
-public class infoFragment extends Fragment {
+public class InfoFragment extends Fragment {
 
     private FragmentInfoBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        infoViewModel infoViewModel =
-                new ViewModelProvider(this).get(infoViewModel.class);
+        InfoViewModel infoViewModel =
+                new ViewModelProvider(this).get(InfoViewModel.class);
 
         binding = FragmentInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

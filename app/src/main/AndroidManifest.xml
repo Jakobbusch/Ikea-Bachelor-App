@@ -14,14 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IkeaBachelorApp">
         <activity
-            android:name=".CameraActivity"
+            android:name=".View.CameraView"
             android:exported="false" />
         <activity
-            android:name=".productpage"
+            android:name=".View.productPageView"
             android:exported="false"
             android:label="@string/title_activity_productpage" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

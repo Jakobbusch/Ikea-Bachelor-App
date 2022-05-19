@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -9,26 +9,28 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import com.example.ikeabachelorapp.R;
+
 import java.util.HashMap;
 import java.util.List;
 
-public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
+public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Context context;
-    private List<String> expandableTitleList;
-    private HashMap<String, List<String>> expandableDetailList;
+    private List<String> titleList;
+    private HashMap<String, List<String>> list;
 
     // constructor
-    public CustomizedExpandableListAdapter(Context context, List<String> expandableListTitle,
-                                           HashMap<String, List<String>> expandableListDetail) {
+    public ExpandableListAdapter(Context context, List<String> titleList,
+                                 HashMap<String, List<String>> list) {
         this.context = context;
-        this.expandableTitleList = expandableListTitle;
-        this.expandableDetailList = expandableListDetail;
+        this.titleList = titleList;
+        this.list = list;
     }
 
     @Override
     // Gets the data associated with the given child within the given group.
-    public Object getChild(int lstPosn, int expanded_ListPosition) {
-        return this.expandableDetailList.get(this.expandableTitleList.get(lstPosn)).get(expanded_ListPosition);
+    public Object getChild(int lstPsn, int expanded_ListPosition) {
+        return this.list.get(this.titleList.get(lstPsn)).get(expanded_ListPosition);
     }
 
     @Override
@@ -40,9 +42,9 @@ public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     // Gets a View that displays the data for the given child within the given group.
-    public View getChildView(int lstPosn, final int expanded_ListPosition,
+    public View getChildView(int lstPsn, final int expanded_ListPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
-        final String expandedListText = (String) getChild(lstPosn, expanded_ListPosition);
+        final String expandedListText = (String) getChild(lstPsn, expanded_ListPosition);
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_item, null);
@@ -56,19 +58,19 @@ public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     // Gets the number of children in a specified group.
     public int getChildrenCount(int listPosition) {
-        return this.expandableDetailList.get(this.expandableTitleList.get(listPosition)).size();
+        return this.list.get(this.titleList.get(listPosition)).size();
     }
 
     @Override
     // Gets the data associated with the given group.
     public Object getGroup(int listPosition) {
-        return this.expandableTitleList.get(listPosition);
+        return this.titleList.get(listPosition);
     }
 
     @Override
     // Gets the number of groups.
     public int getGroupCount() {
-        return this.expandableTitleList.size();
+        return this.titleList.size();
     }
 
     @Override

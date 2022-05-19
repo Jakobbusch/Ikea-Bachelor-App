@@ -1,9 +1,8 @@
-package com.example.ikeabachelorapp;
-
+package com.example.ikeabachelorapp.Model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseProduct {
+public class Product {
 
     @SerializedName("iD")
     private int iD;
@@ -44,8 +43,24 @@ public class ResponseProduct {
     @SerializedName("assembly")
     private Assembly assembly;
 
-    public Product getProduct() {
-        return new Product(iD,name, type, price, width, height, weight, image, partAmount, color, planImage, qRCode,assembly);
+    public Product() {
+    }
+
+    public Product(int iD, String name, String type, double price, double width, double height, double weight,
+                   String image, int partAmount, String color, String planImage, int qRCode, Assembly assembly) {
+        this.iD = iD;
+        this.name = name;
+        this.type = type;
+        this.price = price;
+        this.width = width;
+        this.height = height;
+        this.weight = weight;
+        this.image = image;
+        this.partAmount = partAmount;
+        this.color = color;
+        this.planImage = planImage;
+        this.qRCode = qRCode;
+        this.assembly = assembly;
     }
 
     public int getiD() {
@@ -150,5 +165,24 @@ public class ResponseProduct {
 
     public void setAssembly(Assembly assembly) {
         this.assembly = assembly;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "iD=" + iD +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", price=" + price +
+                ", width=" + width +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", image='" + image + '\'' +
+                ", partAmount=" + partAmount +
+                ", color='" + color + '\'' +
+                ", planImage='" + planImage + '\'' +
+                ", qRCode=" + qRCode +
+                ", assembly=" + assembly +
+                '}';
     }
 }

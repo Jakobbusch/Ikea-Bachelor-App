@@ -1,42 +1,36 @@
-package com.example.ikeabachelorapp.ui.home;
+package com.example.ikeabachelorapp.ViewModel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.ikeabachelorapp.Product;
-import com.example.ikeabachelorapp.Repository;
+import com.example.ikeabachelorapp.Model.Product;
+import com.example.ikeabachelorapp.Model.Repository;
 
 import java.util.HashMap;
 
 public class HomeViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
-    private final MutableLiveData<String> hText;
+    private final MutableLiveData<String> nameHeader;
     Repository rep;
     Product product;
     private HashMap<String,String> urls;
 
     public HomeViewModel() {
         urls= new HashMap<>();
-
         rep = Repository.getInstance();
         product = rep.getSelected();
-
         System.out.println("&Home: " +product.getPlanImage());
         urls.put("drawing",product.getPlanImage());
         urls.put("front",product.getImage());
-        mText = new MutableLiveData<>();
+        nameHeader = new MutableLiveData<>();
         if(product!= null){
-            mText.setValue(product.getName());
+            nameHeader.setValue(product.getName());
         }
-
-        hText = new MutableLiveData<>();
-        hText.setValue("Testtext");
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<String> getNameHeader() {
+        return nameHeader;
     }
 
     public HashMap<String,String> getUrl(){

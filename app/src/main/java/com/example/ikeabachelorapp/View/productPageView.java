@@ -1,9 +1,9 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.View;
 
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.example.ikeabachelorapp.ui.home.HomeFragment;
+import com.example.ikeabachelorapp.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.ikeabachelorapp.databinding.ActivityProductpageBinding;
 
-public class productpage extends AppCompatActivity {
+public class productPageView extends AppCompatActivity {
 
     private ActivityProductpageBinding binding;
     String val;
@@ -30,7 +30,6 @@ public class productpage extends AppCompatActivity {
 
         val1 = extras.getString("qr");
         Toast.makeText(this,val1,Toast.LENGTH_SHORT);
-
     }
         binding = ActivityProductpageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

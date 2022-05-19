@@ -41,7 +41,6 @@ public class MainView extends AppCompatActivity {
         drawerList.setAdapter(expandableListAdapter);
 
         viewModel.getProducts().observe(this,product -> {
-            System.out.println("From Main: "+ product);
                 // Creating arraylist of product types
             ArrayList<String> tempTypes = new ArrayList<>();
             for (int i = 0; i < product.size(); i++) {

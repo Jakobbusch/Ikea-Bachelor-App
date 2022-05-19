@@ -1,22 +1,13 @@
 package com.example.ikeabachelorapp.ui.home;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.ikeabachelorapp.Product;
 import com.example.ikeabachelorapp.Repository;
-import com.example.ikeabachelorapp.productpage;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
-
-import retrofit2.http.Url;
 
 public class HomeViewModel extends ViewModel {
 
@@ -32,12 +23,12 @@ public class HomeViewModel extends ViewModel {
         rep = Repository.getInstance();
         product = rep.getSelected();
 
-        System.out.println("&Home: " +product.getProductPlanImage());
-        urls.put("drawing",product.getProductPlanImage());
-        urls.put("front",product.getProductImage());
+        System.out.println("&Home: " +product.getPlanImage());
+        urls.put("drawing",product.getPlanImage());
+        urls.put("front",product.getImage());
         mText = new MutableLiveData<>();
         if(product!= null){
-            mText.setValue(product.productName);
+            mText.setValue(product.getName());
         }
 
         hText = new MutableLiveData<>();

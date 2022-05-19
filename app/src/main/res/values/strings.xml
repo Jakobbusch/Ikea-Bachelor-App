@@ -15,4 +15,5 @@
     <string name="info_weight">Weight: </string>
     <string name="info_buildTime">Build Time: </string>
     <string name="info_builDifficulty">Build Difficulty: </string>
+    <string name="qr">QR</string>
 </resources>

@@ -22,8 +22,8 @@ public class Repository {
     private Product selectedProduct;
 
     private Repository(){
-        productList = new MutableLiveData<List<Product>>();
-        expandList = new HashMap<String, List<String>>();
+        productList = new MutableLiveData<>();
+        expandList = new HashMap<>();
     }
 
     public static synchronized Repository getInstance() {
@@ -52,11 +52,11 @@ public class Repository {
 
                 if (response.isSuccessful()){
                     if (response.body() != null){
-                        List<String> tables = new ArrayList<String>();
+                        List<String> tables = new ArrayList<>();
                         List<Product> list = new ArrayList<>();
 
                         for (int i = 0; i < response.body().size(); i++) {
-                            tables.add(response.body().get(i).productName);
+                            tables.add(response.body().get(i).getName());
                             list.add(response.body().get(i).getProduct());
                         }
                         productList.setValue(list);
@@ -74,26 +74,26 @@ public class Repository {
             }
         });
     }
-    public void setSelectedByName(String selected){
+    public void setSelectedByName(String select){
         for (int i = 0; i < productList.getValue().size(); i++) {
-            System.out.println("Rep Chosen product: "+selected);
-            System.out.println("Rep loop product: "+productList.getValue().get(i).productName);
-            if(productList.getValue().get(i).productName.equalsIgnoreCase(selected)){
+            System.out.println("Rep Chosen product: "+select);
+            System.out.println("Rep loop product: "+productList.getValue().get(i).getName());
+            if(productList.getValue().get(i).getName().equalsIgnoreCase(select)){
                 selectedProduct = productList.getValue().get(i);
-                System.out.println("Repository: products matched" + productList.getValue().get(i).getProductType());
+                System.out.println("Repository: products matched" + productList.getValue().get(i).getType());
             }
             System.out.println("Repository: No products matched");
         }
-        this.selected = selected;
+        this.selected = select;
     }
 
     public void setSelectedByQr(int qr){
         for (int i = 0; i < productList.getValue().size(); i++) {
             System.out.println("Rep Chosen product: "+selected);
-            System.out.println("Rep loop product: "+productList.getValue().get(i).productName);
-            if(productList.getValue().get(i).getProductQRCode() == qr){
+            System.out.println("Rep loop product: "+productList.getValue().get(i).getName());
+            if(productList.getValue().get(i).getqRCode() == qr){
                 selectedProduct = productList.getValue().get(i);
-                System.out.println("Repository: products matched" + productList.getValue().get(i).getProductType());
+                System.out.println("Repository: products matched" + productList.getValue().get(i).getType());
             }
             System.out.println("Repository: No products matched");
         }

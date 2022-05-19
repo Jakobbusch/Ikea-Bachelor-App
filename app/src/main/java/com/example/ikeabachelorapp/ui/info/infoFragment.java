@@ -12,8 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ikeabachelorapp.databinding.FragmentInfoBinding;
 
-import org.w3c.dom.Text;
-
 public class infoFragment extends Fragment {
 
     private FragmentInfoBinding binding;
@@ -26,21 +24,23 @@ public class infoFragment extends Fragment {
         binding = FragmentInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textInfo;
         final TextView pname = binding.infoPname;
         final TextView ptype = binding.infoPtype;
         final TextView pprice = binding.infoPprice;
         final TextView pcolor = binding.infoPcolor;
         final TextView pscale = binding.infoPscale;
         final TextView pweight = binding.infoPweight;
+        final TextView pbuildtime = binding.infoPbuildtime;
+        final TextView pbuilddiff = binding.infoPbuildifficulty;
 
-        infoViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        pname.setText(infoViewModel.getProduct().productName);
-        ptype.setText(infoViewModel.getProduct().productType);
-        pprice.setText(String.valueOf(infoViewModel.getProduct().productPrice));
+
+        pname.setText(infoViewModel.getProduct().getName());
+        ptype.setText(infoViewModel.getProduct().getType());
+        pprice.setText(String.valueOf(infoViewModel.getProduct().getPrice()));
         pcolor.setText("Missing val");
-        pscale.setText(infoViewModel.getProduct().productHeight+"Cm /"+infoViewModel.getProduct().productWidth+"Cm");
-        pweight.setText(String.valueOf(infoViewModel.getProduct().productWeight));
+        pscale.setText(infoViewModel.getProduct().getHeight()+"Cm /"+infoViewModel.getProduct().getWidth()+"Cm");
+        pweight.setText(String.valueOf(infoViewModel.getProduct().getWeight()));
+        //pbuildtime.setText(infoViewModel.getProduct().get);
         return root;
     }
 

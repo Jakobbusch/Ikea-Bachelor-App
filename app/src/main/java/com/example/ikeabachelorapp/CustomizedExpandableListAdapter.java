@@ -1,6 +1,7 @@
 package com.example.ikeabachelorapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,6 +48,7 @@ public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = layoutInflater.inflate(R.layout.list_item, null);
         }
         TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expandedListItem);
+        expandedListTextView.setTextColor(Color.BLUE);
         expandedListTextView.setText(expandedListText);
         return convertView;
     }
@@ -89,6 +91,11 @@ public class CustomizedExpandableListAdapter extends BaseExpandableListAdapter {
         TextView listTitleTextView = (TextView) convertView.findViewById(R.id.listTitle);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
+        if(isExpanded){
+            listTitleTextView.setTextColor(Color.RED);
+        }else{
+            listTitleTextView.setTextColor(Color.BLACK);
+        }
         return convertView;
     }
 

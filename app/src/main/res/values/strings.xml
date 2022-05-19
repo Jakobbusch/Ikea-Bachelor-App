@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Ikea Bachelor App</string>
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="title_activity_productpage">productpage</string>
+    <string name="title_home">Home</string>
+    <string name="title_info">Info</string>
+    <string name="title_assembly">Assembly</string>
+    <string name="info_name">Product Name: </string>
+    <string name="info_type">Type: </string>
+    <string name="info_price">Price: </string>
+    <string name="info_color">Color: </string>
+    <string name="info_scale">Scale: </string>
+    <string name="info_weight">Weight: </string>
+    <string name="info_buildTime">Build Time: </string>
+    <string name="info_builDifficulty">Build Difficulty: </string>
+    <string name="qr">QR</string>
 </resources>

@@ -5,87 +5,150 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponseProduct {
 
+    @SerializedName("iD")
+    private int iD;
 
-    @SerializedName("productID")
-    public int productID;
+    @SerializedName("name")
+    private String name;
 
-    @SerializedName("productName")
-    public String productName;
+    @SerializedName("type")
+    private String type;
 
-    @SerializedName("productType")
-    public String productType;
+    @SerializedName("price")
+    private double price;
 
-    @SerializedName("productPrice")
-    public double productPrice;
+    @SerializedName("width")
+    private double width;
 
-    @SerializedName("productWidth")
-    public double productWidth;
+    @SerializedName("height")
+    private double height;
 
-    @SerializedName("productHeight")
-    public double productHeight;
+    @SerializedName("weight")
+    private double weight;
 
-    @SerializedName("productWeight")
-    public double productWeight;
+    @SerializedName("image")
+    private String image;
+
+    @SerializedName("partAmount")
+    private int partAmount;
+
+    @SerializedName("color")
+    private String color;
+
+    @SerializedName("planImage")
+    private String planImage;
+
+    @SerializedName("qRCode")
+    private int qRCode;
+
+    @SerializedName("assembly")
+    private Assembly assembly;
 
     public Product getProduct() {
-        return new Product(productID,productName,productType,productPrice,productWidth,productHeight,productWeight);
+        return new Product(iD,name, type, price, width, height, weight, image, partAmount, color, planImage, qRCode,assembly);
     }
 
-
-
-    public int getProductID() {
-        return productID;
+    public int getiD() {
+        return iD;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setiD(int iD) {
+        this.iD = iD;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getName() {
+        return name;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProductType() {
-        return productType;
+    public String getType() {
+        return type;
     }
 
-    public void setProductType(String productType) {
-        this.productType = productType;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public double getProductPrice() {
-        return productPrice;
+    public double getPrice() {
+        return price;
     }
 
-    public void setProductPrice(double productPrice) {
-        this.productPrice = productPrice;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public double getProductWidth() {
-        return productWidth;
+    public double getWidth() {
+        return width;
     }
 
-    public void setProductWidth(double productWidth) {
-        this.productWidth = productWidth;
+    public void setWidth(double width) {
+        this.width = width;
     }
 
-    public double getProductHeight() {
-        return productHeight;
+    public double getHeight() {
+        return height;
     }
 
-    public void setProductHeight(double productHeight) {
-        this.productHeight = productHeight;
+    public void setHeight(double height) {
+        this.height = height;
     }
 
-    public double getProductWeight() {
-        return productWeight;
+    public double getWeight() {
+        return weight;
     }
 
-    public void setProductWeight(double productWeight) {
-        this.productWeight = productWeight;
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getPartAmount() {
+        return partAmount;
+    }
+
+    public void setPartAmount(int partAmount) {
+        this.partAmount = partAmount;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getPlanImage() {
+        return planImage;
+    }
+
+    public void setPlanImage(String planImage) {
+        this.planImage = planImage;
+    }
+
+    public int getqRCode() {
+        return qRCode;
+    }
+
+    public void setqRCode(int qRCode) {
+        this.qRCode = qRCode;
+    }
+
+    public Assembly getAssembly() {
+        return assembly;
+    }
+
+    public void setAssembly(Assembly assembly) {
+        this.assembly = assembly;
     }
 }

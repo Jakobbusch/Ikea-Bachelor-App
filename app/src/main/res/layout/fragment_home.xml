@@ -29,7 +29,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.039" />
 
-    <ImageView
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <TextView
+        android:id="@+id/textProduct"
+        android:layout_width="360dp"
+        android:layout_height="264dp"
+        android:textColor="#280071"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/carousel"
+        app:layout_constraintVertical_bias="0.148" /><![CDATA[
+
+    ImageView
         android:id="@+id/imageViewFront"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,14 +66,5 @@
         app:layout_constraintVertical_bias="0.075"
         tools:src="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageViewDraw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFront"
-        tools:src="@tools:sample/avatars" />
-
+    ]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,8 +25,14 @@ public class Product {
     @SerializedName("weight")
     private double weight;
 
+    @SerializedName("text")
+    private String text;
+
     @SerializedName("image")
     private String image;
+
+    @SerializedName("image2")
+    private String image2;
 
     @SerializedName("partAmount")
     private int partAmount;
@@ -46,8 +52,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(int iD, String name, String type, double price, double width, double height, double weight,
-                   String image, int partAmount, String color, String planImage, int qRCode, Assembly assembly) {
+    public Product(int iD, String name, String type, double price, double width, double height, double weight, String text,
+                   String image,String image2, int partAmount, String color, String planImage, int qRCode, Assembly assembly) {
         this.iD = iD;
         this.name = name;
         this.type = type;
@@ -55,12 +61,15 @@ public class Product {
         this.width = width;
         this.height = height;
         this.weight = weight;
+        this.text = text;
         this.image = image;
+        this.image2 = image2;
         this.partAmount = partAmount;
         this.color = color;
         this.planImage = planImage;
         this.qRCode = qRCode;
         this.assembly = assembly;
+
     }
 
     public int getiD() {
@@ -165,6 +174,22 @@ public class Product {
 
     public void setAssembly(Assembly assembly) {
         this.assembly = assembly;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
     }
 
     @Override

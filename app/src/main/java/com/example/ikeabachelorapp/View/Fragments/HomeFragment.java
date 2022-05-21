@@ -37,6 +37,7 @@ public class HomeFragment extends Fragment {
         final ImageView imageViewFront = binding.imageViewFront;
         final ImageView imageViewDraw = binding.imageViewDraw;
 
+        textView.setText(homeViewModel.getProduct().getName());
         homeViewModel.getNameHeader().observe(getViewLifecycleOwner(), textView::setText);
 
         Picasso.get().load(homeViewModel.getUrl().get("front")).into(imageViewFront);

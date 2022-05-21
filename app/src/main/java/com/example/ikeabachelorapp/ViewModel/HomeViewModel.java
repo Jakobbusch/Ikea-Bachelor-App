@@ -28,7 +28,9 @@ public class HomeViewModel extends ViewModel {
             nameHeader.setValue(product.getName());
         }
     }
-
+    public Product getProduct(){
+        return product;
+    }
     public LiveData<String> getNameHeader() {
         return nameHeader;
     }

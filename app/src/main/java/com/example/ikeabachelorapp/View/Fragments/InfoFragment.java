@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ikeabachelorapp.databinding.FragmentInfoBinding;
 import com.example.ikeabachelorapp.ViewModel.InfoViewModel;
+import com.squareup.picasso.Picasso;
 
 public class InfoFragment extends Fragment {
 
@@ -24,8 +26,7 @@ public class InfoFragment extends Fragment {
 
         binding = FragmentInfoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
-        final TextView pname = binding.infoPname;
+        final TextView headerinfo = binding.textInfo;
         final TextView ptype = binding.infoPtype;
         final TextView pprice = binding.infoPprice;
         final TextView pcolor = binding.infoPcolor;
@@ -33,9 +34,11 @@ public class InfoFragment extends Fragment {
         final TextView pweight = binding.infoPweight;
         final TextView pbuildtime = binding.infoPbuildtime;
         final TextView pbuilddiff = binding.infoPbuildifficulty;
+        final ImageView imageInfo = binding.infoImage;
 
 
-        pname.setText(infoViewModel.getProduct().getName());
+        Picasso.get().load(infoViewModel.getUrl().get("info")).into(imageInfo);
+        headerinfo.setText(infoViewModel.getProduct().getName());
         ptype.setText(infoViewModel.getProduct().getType());
         pprice.setText(String.valueOf(infoViewModel.getProduct().getPrice()));
         pcolor.setText("Missing val");

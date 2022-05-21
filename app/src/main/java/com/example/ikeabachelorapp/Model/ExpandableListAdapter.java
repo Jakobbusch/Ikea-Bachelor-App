@@ -50,7 +50,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             convertView = layoutInflater.inflate(R.layout.list_item, null);
         }
         TextView expandedListTextView = (TextView) convertView.findViewById(R.id.expandedListItem);
-        expandedListTextView.setTextColor(Color.BLUE);
+        expandedListTextView.setTextColor(Color.parseColor("#280071"));
         expandedListTextView.setText(expandedListText);
         return convertView;
     }
@@ -94,7 +94,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
         if(isExpanded){
-            listTitleTextView.setTextColor(Color.RED);
+            listTitleTextView.setTextColor(Color.parseColor("#FFCD00"));
         }else{
             listTitleTextView.setTextColor(Color.BLACK);
         }

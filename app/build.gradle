@@ -68,4 +68,12 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:$camera_version"
     implementation "androidx.camera:camera-view:1.0.0-alpha14"
     implementation 'com.google.zxing:core:3.3.0'
+
+
+    implementation 'com.nineoldandroids:library:2.4.0'
+    implementation 'com.daimajia.slider:library:1.1.5@aar'
+
+
+
+
 }   

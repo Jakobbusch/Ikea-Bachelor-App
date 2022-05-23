@@ -30,6 +30,7 @@ public class AssemblyFragment extends Fragment {
         final TextView textView = binding.textAssembly;
 
         final WebView webView = binding.assemblyWebview;
+        textView.setText(assemblyViewModel.getProduct().getName());
         webView.loadUrl("https://irongarden.github.io/ZoomRotate/");
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);

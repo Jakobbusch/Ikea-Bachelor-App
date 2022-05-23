@@ -39,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -46,7 +47,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_type"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -64,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -71,7 +74,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_price"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -89,6 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -96,7 +101,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_color"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -114,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -121,7 +128,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_scale"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -139,6 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -146,7 +155,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_weight"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -164,6 +174,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -171,7 +182,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_buildTime"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -189,6 +201,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="15dp"
+            android:background="#E8E8E8"
             android:gravity="center">
 
             <TextView
@@ -197,7 +210,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/info_builDifficulty"
                 android:textColor="#280071"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Space
                 android:layout_width="@dimen/info_string_space"
@@ -225,7 +239,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
         android:id="@+id/infoImage"

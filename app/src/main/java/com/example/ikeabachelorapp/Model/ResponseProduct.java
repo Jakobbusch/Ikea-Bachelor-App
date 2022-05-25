@@ -26,8 +26,14 @@ public class ResponseProduct {
     @SerializedName("weight")
     private double weight;
 
+    @SerializedName("text")
+    private String text;
+
     @SerializedName("image")
     private String image;
+
+    @SerializedName("image2")
+    private String image2;
 
     @SerializedName("partAmount")
     private int partAmount;
@@ -45,7 +51,7 @@ public class ResponseProduct {
     private Assembly assembly;
 
     public Product getProduct() {
-        return new Product(iD,name, type, price, width, height, weight, image, partAmount, color, planImage, qRCode,assembly);
+        return new Product(iD,name, type, price, width, height, weight,text, image,image2, partAmount, color, planImage, qRCode,assembly);
     }
 
     public int getiD() {
@@ -150,5 +156,21 @@ public class ResponseProduct {
 
     public void setAssembly(Assembly assembly) {
         this.assembly = assembly;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
     }
 }

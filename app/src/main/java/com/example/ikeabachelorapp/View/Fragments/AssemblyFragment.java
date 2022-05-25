@@ -28,11 +28,10 @@ public class AssemblyFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textAssembly;
+        textView.setText(assemblyViewModel.getProduct().getName());
 
         final WebView webView = binding.assemblyWebview;
-        //webView.loadUrl("https://irongarden.github.io/ZoomRotate/");
-        webView.loadUrl("https://irongarden.github.io/test/");
-
+        webView.loadUrl("https://irongarden.github.io/ZoomRotate/");
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 

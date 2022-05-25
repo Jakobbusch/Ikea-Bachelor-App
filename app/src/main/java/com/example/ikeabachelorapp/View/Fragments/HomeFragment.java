@@ -17,6 +17,12 @@ import com.example.ikeabachelorapp.View.productPageView;
 import com.example.ikeabachelorapp.ViewModel.HomeViewModel;
 import com.squareup.picasso.Picasso;
 
+import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
@@ -33,15 +39,27 @@ public class HomeFragment extends Fragment {
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        final ImageCarousel imageCarousel = binding.carousel;
         final TextView textView = binding.textHome;
-        final ImageView imageViewFront = binding.imageViewFront;
-        final ImageView imageViewDraw = binding.imageViewDraw;
+        final TextView textView1 = binding.textProduct;
 
+        textView1.setText(homeViewModel.getProduct().getText());
+        imageCarousel.registerLifecycle(getLifecycle());
+        textView.setText(homeViewModel.getProduct().getName());
         homeViewModel.getNameHeader().observe(getViewLifecycleOwner(), textView::setText);
 
-        Picasso.get().load(homeViewModel.getUrl().get("front")).into(imageViewFront);
-        Picasso.get().load(homeViewModel.getUrl().get("drawing")).into(imageViewDraw);
+        List<CarouselItem> list = new ArrayList<>();
 
+        list.add(
+                new CarouselItem(homeViewModel.getUrl().get("front"))
+        );
+
+        list.add(
+                new CarouselItem(homeViewModel.getUrl().get("front2"))
+        );
+     //  Picasso.get().load(homeViewModel.getUrl().get("front")).into(imageViewFront);
+      //  Picasso.get().load(homeViewModel.getUrl().get("drawing")).into(imageViewDraw);
+        imageCarousel.setData(list);
         return root;
     }
 

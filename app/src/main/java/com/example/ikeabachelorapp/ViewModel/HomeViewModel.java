@@ -21,14 +21,16 @@ public class HomeViewModel extends ViewModel {
         rep = Repository.getInstance();
         product = rep.getSelected();
         System.out.println("&Home: " +product.getPlanImage());
-        urls.put("drawing",product.getPlanImage());
+        urls.put("front2",product.getImage2());
         urls.put("front",product.getImage());
         nameHeader = new MutableLiveData<>();
         if(product!= null){
             nameHeader.setValue(product.getName());
         }
     }
-
+    public Product getProduct(){
+        return product;
+    }
     public LiveData<String> getNameHeader() {
         return nameHeader;
     }

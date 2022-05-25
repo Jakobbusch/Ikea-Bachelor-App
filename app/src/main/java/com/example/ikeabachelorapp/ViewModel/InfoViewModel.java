@@ -4,17 +4,26 @@ import androidx.lifecycle.ViewModel;
 import com.example.ikeabachelorapp.Model.Product;
 import com.example.ikeabachelorapp.Model.Repository;
 
+import java.util.HashMap;
+
 public class InfoViewModel extends ViewModel {
 
     Repository rep;
-    Product p;
+    Product product;
+    private HashMap<String,String> urls;
 
     public InfoViewModel() {
+        urls= new HashMap<>();
         rep = Repository.getInstance();
-        p = rep.getSelected();
-
+        product = rep.getSelected();
+        urls.put("info",product.getPlanImage());
     }
     public Product getProduct(){
-        return p;
+        return product;
+    }
+
+    public HashMap<String,String> getUrl(){
+
+        return urls;
     }
 }

@@ -30,7 +30,9 @@ public class AssemblyFragment extends Fragment {
         final TextView textView = binding.textAssembly;
 
         final WebView webView = binding.assemblyWebview;
-        webView.loadUrl("https://irongarden.github.io/ZoomRotate/");
+        //webView.loadUrl("https://irongarden.github.io/ZoomRotate/");
+        webView.loadUrl("https://irongarden.github.io/test/");
+
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 

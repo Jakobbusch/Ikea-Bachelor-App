@@ -13,10 +13,18 @@ public class AssemblyViewModel extends ViewModel {
 
     Repository rep;
 
+    /**
+     * Constructor AssemblyViewModel
+     */
     public AssemblyViewModel() {
         rep = Repository.getInstance();
         product = rep.getSelected();
     }
+
+    /**
+     * Get product
+     * @return product
+     */
     public Product getProduct(){
         return product;
     }

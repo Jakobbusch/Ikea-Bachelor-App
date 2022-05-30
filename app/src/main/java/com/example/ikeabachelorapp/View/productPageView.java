@@ -20,6 +20,10 @@ public class productPageView extends AppCompatActivity {
     String val;
     String val1;
 
+    /**
+     * Creates product page view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,10 @@ public class productPageView extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    /**
+     * Get data
+     * @return val
+     */
     public String getdata(){
         return val;
     }

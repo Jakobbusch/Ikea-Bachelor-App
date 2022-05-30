@@ -16,6 +16,9 @@ public class HomeViewModel extends ViewModel {
     Product product;
     private HashMap<String,String> urls;
 
+    /**
+     * Constructor HomeViewModel
+     */
     public HomeViewModel() {
         urls= new HashMap<>();
         rep = Repository.getInstance();
@@ -28,13 +31,27 @@ public class HomeViewModel extends ViewModel {
             nameHeader.setValue(product.getName());
         }
     }
+
+    /**
+     * Get product
+     * @return product
+     */
     public Product getProduct(){
         return product;
     }
+
+    /**
+     * Get name header
+     * @return nameHeader
+     */
     public LiveData<String> getNameHeader() {
         return nameHeader;
     }
 
+    /**
+     * Get URL
+     * @return urls
+     */
     public HashMap<String,String> getUrl(){
 
         return urls;

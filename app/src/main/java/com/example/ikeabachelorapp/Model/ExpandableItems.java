@@ -5,6 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ExpandableItems {
+
+    /**
+     *  Get data for expandable list
+     * @return expandableDetailList
+     */
     public static HashMap<String, List<String>> getData() {
         HashMap<String, List<String>> expandableDetailList = new HashMap<String, List<String>>();
 

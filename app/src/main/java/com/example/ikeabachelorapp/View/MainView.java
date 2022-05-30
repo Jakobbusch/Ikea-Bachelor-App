@@ -26,6 +26,10 @@ public class MainView extends AppCompatActivity {
     HashMap<String,List<String>> expandableDetailList;
     private int previousGroupSelect;
 
+    /**
+     * Creates main view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +45,14 @@ public class MainView extends AppCompatActivity {
         drawerList.setAdapter(expandableListAdapter);
 
         viewModel.getProducts().observe(this,product -> {
-                // Creating arraylist of product types
+
             ArrayList<String> tempTypes = new ArrayList<>();
             for (int i = 0; i < product.size(); i++) {
                 if(!tempTypes.contains(product.get(i).getType())){
                     tempTypes.add(product.get(i).getType());
                 }
             }
-            // Adding products to specific type in hashmap
+
             List<String> temp;
             for (int i = 0; i < tempTypes.size(); i++) {
                 temp = new ArrayList<>();
@@ -60,12 +64,12 @@ public class MainView extends AppCompatActivity {
                 expandableDetailList.put(tempTypes.get(i),temp);
             }
         } );
-        // Navigate to camera view and start looking for QR.
+
         qrButton.setOnClickListener(view -> navigateToCamera());
 
 
 
-        // This method is called when a group is expanded and collapses the previous expanded group.
+
         drawerList.setOnGroupExpandListener(groupPosition -> {
             if(groupPosition != previousGroupSelect){
                 drawerList.collapseGroup(previousGroupSelect);
@@ -75,7 +79,7 @@ public class MainView extends AppCompatActivity {
 
 
 
-        // The method navigates to the view of the selected product, when a child of a group is clicked.
+
         drawerList.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
             navigateToProductView(expandableDetailList.get(titleList.get(groupPosition)).get(childPosition));
             return false;
@@ -83,7 +87,10 @@ public class MainView extends AppCompatActivity {
 
     }
 
-    // The method starts a new activity and puts the name of the clicked product as an extra to the intent.
+    /**
+     * Navigates to Product View
+     * @param name
+     */
     private void navigateToProductView(String name){
         viewModel.setSelected(name);
         Intent i = new Intent(MainView.this, productPageView.class);
@@ -91,7 +98,10 @@ public class MainView extends AppCompatActivity {
         startActivity(i);
     }
 
-    // The method opens the camera activity for QR scan
+
+    /**
+     * Navigates to Camera
+     */
     private void navigateToCamera(){
         Intent i = new Intent(MainView.this, CameraView.class);
         startActivity(i);

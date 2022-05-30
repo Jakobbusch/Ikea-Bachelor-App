@@ -44,5 +44,34 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369" />
+        app:layout_constraintVertical_bias="0.369">
+
+    </WebView>
+
+    <TextView
+        android:id="@+id/textViewError"
+        android:layout_width="310dp"
+        android:layout_height="39dp"
+        android:gravity="center"
+        android:textColor="#280071"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.894" />
+
+    <Button
+        android:id="@+id/buttonHelp"
+        android:layout_width="74dp"
+        android:layout_height="45dp"
+        android:text="Help"
+        android:textColor="#FFCD00"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/text_assembly"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.975"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private List<String> titleList;
     private HashMap<String, List<String>> list;
 
-    // constructor
+    /**
+     * ExpandableListAdapter Constructor
+     * @param context
+     * @param titleList
+     * @param list
+     */
     public ExpandableListAdapter(Context context, List<String> titleList,
                                  HashMap<String, List<String>> list) {
         this.context = context;
@@ -27,21 +32,36 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         this.list = list;
     }
 
+    /**
+     * Get Child
+     * @param lstPsn
+     * @param expanded_ListPosition
+     * @return this.list.get(this.titleList.get(lstPsn)).get(expanded_ListPosition)
+     */
     @Override
-    // Gets the data associated with the given child within the given group.
     public Object getChild(int lstPsn, int expanded_ListPosition) {
         return this.list.get(this.titleList.get(lstPsn)).get(expanded_ListPosition);
     }
 
+    /**
+     * Get Child Id
+     * @return expanded_ListPositio
+     */
     @Override
-    // Gets the ID for the given child within the given group.
-    // This ID must be unique across all children within the group. Hence we can pick the child uniquely
     public long getChildId(int listPosition, int expanded_ListPosition) {
         return expanded_ListPosition;
     }
 
+    /**
+     * Get Child View
+     * @param lstPsn
+     * @param expanded_ListPosition
+     * @param isLastChild
+     * @param convertView
+     * @param parent
+     * @return convertView
+     */
     @Override
-    // Gets a View that displays the data for the given child within the given group.
     public View getChildView(int lstPsn, final int expanded_ListPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         final String expandedListText = (String) getChild(lstPsn, expanded_ListPosition);
@@ -55,34 +75,55 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     * Get Number of Children
+     * @param listPosition
+     * @return this.list.get(this.titleList.get(listPosition)).size()
+     */
     @Override
-    // Gets the number of children in a specified group.
     public int getChildrenCount(int listPosition) {
         return this.list.get(this.titleList.get(listPosition)).size();
     }
 
+    /**
+     * Get Group
+     * @param listPosition
+     * @return this.titleList.get(listPosition)
+     */
     @Override
-    // Gets the data associated with the given group.
     public Object getGroup(int listPosition) {
         return this.titleList.get(listPosition);
     }
 
+    /**
+     * Get Group size
+     * @return this.titleList.size()
+     */
     @Override
     // Gets the number of groups.
     public int getGroupCount() {
         return this.titleList.size();
     }
 
+    /**
+     * Get Group Id
+     * @param listPosition
+     * @return listPosition
+     */
     @Override
-    // Gets the ID for the group at the given position. This group ID must be unique across groups.
     public long getGroupId(int listPosition) {
         return listPosition;
     }
 
+    /**
+     * Get View of Group
+     * @param listPosition
+     * @param isExpanded
+     * @param convertView
+     * @param parent
+     * @return convertView
+     */
     @Override
-    // Gets a View that displays the given group.
-    // This View is only for the group--the Views for the group's children
-    // will be fetched using getChildView()
     public View getGroupView(int listPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         String listTitle = (String) getGroup(listPosition);
         if (convertView == null) {
@@ -101,14 +142,22 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return convertView;
     }
 
+    /**
+     * Has Stable Ids
+     * @return false
+     */
     @Override
-    // Indicates whether the child and group IDs are stable across changes to the underlying data.
     public boolean hasStableIds() {
         return false;
     }
 
+    /**
+     * Can child be selected
+     * @param listPosition
+     * @param expandedListPosition
+     * @return true
+     */
     @Override
-    // Whether the child at the specified position is selectable.
     public boolean isChildSelectable(int listPosition, int expandedListPosition) {
         return true;
     }

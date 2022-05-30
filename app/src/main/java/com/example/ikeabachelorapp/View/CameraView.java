@@ -38,6 +38,10 @@ public class CameraView extends AppCompatActivity {
     Repository rep;
     private boolean qrfound = false;
 
+    /**
+     * Creates camera view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +64,10 @@ public class CameraView extends AppCompatActivity {
         requestCam();
 
     }
+
+    /**
+     * Ask camera request
+     */
     private void requestCam(){
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             System.out.println("Open Cam");
@@ -73,6 +81,9 @@ public class CameraView extends AppCompatActivity {
         }
     }
 
+    /**
+     * Open camera
+     */
     private void openCam(){
         cameraLProvider.addListener(() -> {
             try{
@@ -84,6 +95,10 @@ public class CameraView extends AppCompatActivity {
         }, ContextCompat.getMainExecutor(this));
     }
 
+    /**
+     * Bind camera
+     * @param cameraProvider
+     */
     private void bindCamPrev(@NonNull ProcessCameraProvider cameraProvider){
         pv.setPreferredImplementationMode(pv.getPreferredImplementationMode().SURFACE_VIEW);
         Preview p = new Preview.Builder().build();

@@ -27,6 +27,13 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
+    /**
+     * Creates the fragments view
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return root
+     */
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         productPageView activity = (productPageView) getActivity();
@@ -63,6 +70,9 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
+    /**
+     * Destroys view
+     */
     @Override
     public void onDestroyView() {
         super.onDestroyView();

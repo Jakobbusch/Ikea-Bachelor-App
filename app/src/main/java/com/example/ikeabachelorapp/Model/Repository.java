@@ -19,10 +19,17 @@ public class Repository {
     private MutableLiveData<List<Product>> productList;
     private Product selectedProduct;
 
+    /**
+     * Constructor Repository
+     */
     private Repository(){
         productList = new MutableLiveData<>();
     }
 
+    /**
+     * Get instance
+     * @return instance
+     */
     public static synchronized Repository getInstance() {
         if (instance == null) {
             instance = new Repository();
@@ -30,10 +37,18 @@ public class Repository {
         return instance;
     }
 
+    /**
+     * Get products
+     * @return productList
+     */
     public synchronized LiveData<List<Product>> getProducts(){
         return productList;
     }
 
+    /**
+     * Get list of product
+     * Create API call
+     */
     public void getProductList(){
         API api = ServiceGenerator.getApi();
         Call<List<ResponseProduct>> call = api.productList();
@@ -67,6 +82,11 @@ public class Repository {
             }
         });
     }
+
+    /**
+     * Select product by name
+     * @param select
+     */
     public void setSelectedByName(String select){
         for (int i = 0; i < productList.getValue().size(); i++) {
             if(productList.getValue().get(i).getName().equalsIgnoreCase(select)){
@@ -75,6 +95,10 @@ public class Repository {
         }
     }
 
+    /**
+     * Select product by qr
+     * @param qr
+     */
     public void setSelectedByQr(int qr){
         for (int i = 0; i < productList.getValue().size(); i++) {
             if(productList.getValue().get(i).getqRCode() == qr){
@@ -83,6 +107,10 @@ public class Repository {
         }
     }
 
+    /**
+     * Get selected product
+     * @return selectedProduct
+     */
     public Product getSelected(){
         return selectedProduct;
     }

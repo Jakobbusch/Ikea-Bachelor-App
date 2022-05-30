@@ -12,6 +12,10 @@ public class ServiceGenerator {
 
     private static API Api;
 
+    /**
+     * Get the api through service generator
+     * @return Api
+     */
     public static API getApi() {
         if (Api == null) {
             Gson gson = new GsonBuilder()

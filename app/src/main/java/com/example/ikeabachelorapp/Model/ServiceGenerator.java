@@ -13,8 +13,6 @@ public class ServiceGenerator {
     private static API Api;
 
     public static API getApi() {
-
-
         if (Api == null) {
             Gson gson = new GsonBuilder()
                     .setLenient()

@@ -221,6 +221,7 @@
                 android:id="@+id/info_Pbuildifficulty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#280071"
                 android:textSize="20sp" />
         </TableRow>
     </TableLayout>

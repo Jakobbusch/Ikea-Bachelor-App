@@ -6,19 +6,17 @@
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/button.xml" value="0.179" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/button_text.xml" value="0.139" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/buttonstate.xml" value="0.139" />
-        <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/dialog.xml" value="0.1665" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/ic_baseline_assembly_24.xml" value="0.108" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.108" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1185" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.108" />
-        <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/drawable/ikea_arrow.xml" value="0.179" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/activity_camera.xml" value="0.12239583333333333" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/activity_productpage.xml" value="0.12239583333333333" />
-        <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/fragment_assembly.xml" value="0.25" />
+        <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/fragment_assembly.xml" value="0.2694746376811594" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/fragment_home.xml" value="0.4" />
-        <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/fragment_info.xml" value="0.264" />
+        <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/fragment_info.xml" value="1.6" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/homepage.xml" value="0.264" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/list_group.xml" value="0.2694746376811594" />
         <entry key="..\:/Users/jakob/AndroidStudioProjects/IkeaBachelorApp/app/src/main/res/layout/list_item.xml" value="0.2694746376811594" />
@@ -29,6 +27,7 @@
         <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/activity_camera.xml" value="0.1" />
         <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/activity_productpage.xml" value="0.10733695652173914" />
+        <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/dialog.xml" value="0.1" />
         <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/fragment_assembly.xml" value="0.1" />
         <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/fragment_dashboard.xml" value="0.1331521739130435" />
         <entry key="..\:/Users/mathi/AndroidStudioProjects/Ikea-Bachelor-App/app/src/main/res/layout/fragment_home.xml" value="0.2" />

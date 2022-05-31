@@ -17,8 +17,8 @@ import com.example.ikeabachelorapp.databinding.ActivityProductpageBinding;
 public class productPageView extends AppCompatActivity {
 
     private ActivityProductpageBinding binding;
-    String val;
-    String val1;
+    String clickVal;
+    String qrVal;
 
     /**
      * Creates product page view
@@ -29,18 +29,17 @@ public class productPageView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     Bundle extras = getIntent().getExtras();
     if(extras!=null){
-         val = extras.getString("click");
-        System.out.println("From product: "+val);
+         clickVal = extras.getString("click");
+        System.out.println("From product: "+ clickVal);
 
-        val1 = extras.getString("qr");
-        Toast.makeText(this,val1,Toast.LENGTH_SHORT);
+        qrVal = extras.getString("qr");
+        Toast.makeText(this, qrVal,Toast.LENGTH_SHORT);
     }
         binding = ActivityProductpageBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_info, R.id.navigation_assembly)
                 .build();
@@ -54,6 +53,6 @@ public class productPageView extends AppCompatActivity {
      * @return val
      */
     public String getdata(){
-        return val;
+        return clickVal;
     }
 }

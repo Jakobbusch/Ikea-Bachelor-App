@@ -51,7 +51,8 @@ public class InfoFragment extends Fragment {
         pcolor.setText("Missing val");
         pscale.setText(infoViewModel.getProduct().getHeight()+"Cm /"+infoViewModel.getProduct().getWidth()+"Cm");
         pweight.setText(String.valueOf(infoViewModel.getProduct().getWeight()));
-        //pbuildtime.setText(infoViewModel.getProduct().get);
+        pbuildtime.setText(String.valueOf(infoViewModel.getProduct().getAssembly().getBuildTime()));
+        pbuilddiff.setText(String.valueOf(infoViewModel.getProduct().getAssembly().getBuildDifficulty()));
         return root;
     }
 

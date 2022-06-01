@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.ikeabachelorapp.ui.home.HomeFragment"
+        android:name="com.example.ikeabachelorapp.View.Fragments.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_info"
-        android:name="com.example.ikeabachelorapp.ui.info.infoFragment"
+        android:name="com.example.ikeabachelorapp.View.Fragments.InfoFragment"
         android:label="@string/title_info"
         tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/navigation_assembly"
-        android:name="com.example.ikeabachelorapp.ui.assembly.assemblyFragment"
+        android:name="com.example.ikeabachelorapp.View.Fragments.AssemblyFragment"
         android:label="@string/title_assembly"
         tools:layout="@layout/fragment_assembly" />
 </navigation>

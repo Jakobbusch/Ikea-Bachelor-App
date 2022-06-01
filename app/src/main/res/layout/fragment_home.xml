@@ -4,38 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:background="@color/white"><![CDATA[
+    tools:context=".View.Fragments.HomeFragment">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ]]>
 
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/archivo_black"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textColor="#280071"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
 
-    <ImageView
-        android:id="@+id/imageViewFront"
-        android:layout_width="373dp"
-        android:layout_height="243dp"
-        android:layout_marginTop="24dp"
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintVertical_bias="0.174" />
 
-    <ImageView
-        android:id="@+id/imageViewDraw"
-        android:layout_width="384dp"
-        android:layout_height="259dp"
-        android:layout_marginBottom="40dp"
+    <TextView
+        android:id="@+id/textProduct"
+        android:layout_width="364dp"
+        android:layout_height="203dp"
+        android:textColor="#280071"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        tools:src="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintTop_toBottomOf="@+id/carousel"
+        app:layout_constraintVertical_bias="0.423" /><![CDATA[
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ImageView
+        android:id="@+id/imageViewFront"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home"
+        app:layout_constraintVertical_bias="0.075"
+        tools:src="@tools:sample/avatars" />
+
+
+
+
+
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

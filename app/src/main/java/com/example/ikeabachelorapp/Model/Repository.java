@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -17,15 +17,19 @@ import retrofit2.internal.EverythingIsNonNull;
 public class Repository {
     private static Repository instance;
     private MutableLiveData<List<Product>> productList;
-    HashMap<String, List<String>> expandList;
-    private String selected;
     private Product selectedProduct;
 
+    /**
+     * Constructor Repository
+     */
     private Repository(){
         productList = new MutableLiveData<>();
-        expandList = new HashMap<>();
     }
 
+    /**
+     * Get instance
+     * @return instance
+     */
     public static synchronized Repository getInstance() {
         if (instance == null) {
             instance = new Repository();
@@ -33,15 +37,18 @@ public class Repository {
         return instance;
     }
 
+    /**
+     * Get products
+     * @return productList
+     */
     public synchronized LiveData<List<Product>> getProducts(){
         return productList;
     }
 
-    public HashMap<String, List<String>> getExpandList(){
-        return expandList;
-    }
-
-
+    /**
+     * Get list of product
+     * Create API call
+     */
     public void getProductList(){
         API api = ServiceGenerator.getApi();
         Call<List<ResponseProduct>> call = api.productList();
@@ -50,6 +57,7 @@ public class Repository {
             @Override
             public void onResponse(Call<List<ResponseProduct>> call, Response<List<ResponseProduct>> response) {
 
+                System.out.println(response.body().get(0).getName());
                 if (response.isSuccessful()){
                     if (response.body() != null){
                         List<String> tables = new ArrayList<>();
@@ -74,32 +82,35 @@ public class Repository {
             }
         });
     }
+
+    /**
+     * Select product by name
+     * @param select
+     */
     public void setSelectedByName(String select){
         for (int i = 0; i < productList.getValue().size(); i++) {
-            System.out.println("Rep Chosen product: "+select);
-            System.out.println("Rep loop product: "+productList.getValue().get(i).getName());
             if(productList.getValue().get(i).getName().equalsIgnoreCase(select)){
                 selectedProduct = productList.getValue().get(i);
-                System.out.println("Repository: products matched" + productList.getValue().get(i).getType());
             }
-            System.out.println("Repository: No products matched");
         }
-        this.selected = select;
     }
 
+    /**
+     * Select product by qr
+     * @param qr
+     */
     public void setSelectedByQr(int qr){
         for (int i = 0; i < productList.getValue().size(); i++) {
-            System.out.println("Rep Chosen product: "+selected);
-            System.out.println("Rep loop product: "+productList.getValue().get(i).getName());
             if(productList.getValue().get(i).getqRCode() == qr){
                 selectedProduct = productList.getValue().get(i);
-                System.out.println("Repository: products matched" + productList.getValue().get(i).getType());
             }
-            System.out.println("Repository: No products matched");
         }
-        this.selected = selected;
     }
 
+    /**
+     * Get selected product
+     * @return selectedProduct
+     */
     public Product getSelected(){
         return selectedProduct;
     }

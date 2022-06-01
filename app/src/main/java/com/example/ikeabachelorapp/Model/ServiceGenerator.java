@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
 
 import com.google.gson.Gson;
@@ -12,9 +12,11 @@ public class ServiceGenerator {
 
     private static API Api;
 
+    /**
+     * Get the api through service generator
+     * @return Api
+     */
     public static API getApi() {
-
-
         if (Api == null) {
             Gson gson = new GsonBuilder()
                     .setLenient()

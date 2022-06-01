@@ -1,4 +1,4 @@
-package com.example.ikeabachelorapp;
+package com.example.ikeabachelorapp.Model;
 
 import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
@@ -22,9 +22,18 @@ import java.nio.ByteBuffer;
 public class QRCodeImageAnalyser implements ImageAnalysis.Analyzer{
     private QRCodeFoundListener listener;
 
+    /**
+     * QRCodeImageAnalyser
+     * @param listener
+     */
     public QRCodeImageAnalyser(QRCodeFoundListener listener){
         this.listener = listener;
     }
+
+    /**
+     * Analyze image
+     * @param image
+     */
     @Override
     public void analyze(@NonNull ImageProxy image) {
         if(image.getFormat() == YUV_420_888 || image.getFormat() == YUV_422_888 || image.getFormat() == YUV_444_888){
